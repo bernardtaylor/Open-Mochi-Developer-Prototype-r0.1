@@ -1,4 +1,4 @@
-# Open Mochi · developer prototype v0.2.0
+# Open Mochi · developer prototype v0.2.1
 
 > **Community engineering reference, not a firmware update for a factory Dasai Mochi V3.** Independent experimental project. Not affiliated with Dasai or Flipper Devices. No original factory firmware, artwork or sound assets are included.
 
@@ -9,6 +9,10 @@ A reproducible path toward a modular animated companion that can interact with F
 **Canonical GitHub repository:** [bernardtaylor/Open-Mochi-Developer-Prototype-r0.1](https://github.com/bernardtaylor/Open-Mochi-Developer-Prototype-r0.1). Despite the historical repository name, releases are versioned by `VERSION` and `pyproject.toml`, not by renaming the repository.
 
 New code/docs changes requested in ChatGPT should be published with a version bump when appropriate, updated README and changelog, tests and a traceable commit or pull request. This requires an active connected GitHub session; no unattended background sync is implied. See [docs/RELEASE_PROCESS.md](docs/RELEASE_PROCESS.md). The protocol version (`MOCHI/1`) and hardware revisions are separate from the software release version.
+
+## Proposed next product direction (RFC — not implemented)
+
+[**RFC-0001: Local-first community IoT hub, mobile app, AI and device editions**](docs/RFC-0001-LOCAL-FIRST-COMMUNITY-HUB.md) describes a proposed BLE-first companion experience with optional Home Assistant/MQTT and cloud/social extensions. It is research and roadmap documentation, not support for a working cloud app. v0.2.1 is a **documentation-only** release; the firmware and simulator capabilities remain those of v0.2.0.
 
 ## Demonstrated / not demonstrated
 
