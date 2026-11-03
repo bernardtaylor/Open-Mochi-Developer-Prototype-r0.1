@@ -1,0 +1,84 @@
+{
+  "project": "open-mochi",
+  "protocol": "MOCHI/1",
+  "version": "0.2.0",
+  "timestamp_utc": "2026-11-02T23:39:39.695936+00:00",
+  "python_major_minor": "3.13",
+  "passed": 12,
+  "total": 12,
+  "tests": [
+    {
+      "command": "I",
+      "passed": true,
+      "http_status": 200,
+      "reply": "ID:0.2,sim"
+    },
+    {
+      "command": "Q",
+      "passed": true,
+      "http_status": 200,
+      "reply": "ST:neutral,0.0"
+    },
+    {
+      "command": "E:happy",
+      "passed": true,
+      "http_status": 200,
+      "reply": "OK:E:happy"
+    },
+    {
+      "command": "V:42.5",
+      "passed": true,
+      "http_status": 200,
+      "reply": "OK:V"
+    },
+    {
+      "command": "S:1",
+      "passed": true,
+      "http_status": 200,
+      "reply": "OK:S"
+    },
+    {
+      "command": "P:1",
+      "passed": true,
+      "http_status": 200,
+      "reply": "OK:P"
+    },
+    {
+      "command": "P:0",
+      "passed": true,
+      "http_status": 200,
+      "reply": "OK:P"
+    },
+    {
+      "command": "Q",
+      "passed": true,
+      "http_status": 200,
+      "reply": "ST:happy,42.5"
+    },
+    {
+      "command": "E:bad",
+      "passed": true,
+      "http_status": 422,
+      "reply": ""
+    },
+    {
+      "command": "V:-1",
+      "passed": true,
+      "http_status": 422,
+      "reply": ""
+    },
+    {
+      "command": "E:neutral",
+      "passed": true,
+      "http_status": 200,
+      "reply": "OK:E:neutral"
+    },
+    {
+      "command": "V:0",
+      "passed": true,
+      "http_status": 200,
+      "reply": "OK:V"
+    }
+  ],
+  "privacy": "This report omits GPS, usernames, MAC, hostname, serials and tokens."
+}

@@ -1,0 +1,10 @@
+.pio/
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+.env
+.DS_Store
+*.bin
+*.elf
+*.uf2

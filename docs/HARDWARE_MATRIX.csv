@@ -1,0 +1,7 @@
+platform,role,proposed_support,verified_by_this_release,notes
+ESP32-S3 DevKitC-1,reference controller,source provided,no,Requires hardware build+flash and external screen/amplifier
+Flipper Zero Momentum,external UART controller,JS source provided,no,Must validate installed Momentum JS API and USART wiring
+Dasai Mochi V3,factory retrofit,unverified,no,Processor/display/USB interfaces unknown
+M5Stack ATOM VoiceS3R,alternative audio board,planned,no,Requires different pinmap and hardware abstraction
+Seeed XIAO ESP32-S3 Sense,miniature alternative,planned,no,Requires different pinmap and audio output
+Raspberry Pi Zero 2 W,optional gateway,planned,no,No implementation in r0

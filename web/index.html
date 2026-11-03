@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101925">
+  <title>Open Mochi — developer play-test</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="layout">
+  <header>
+    <div><p class="eyebrow">OPEN MOCHI / DEVELOPER RELEASE 0.2</p><h1>Companion play-test</h1><p class="subhead">A local emulator and hardware command console. No factory V3 firmware required.</p></div>
+    <span id="connect" class="status">Connecting…</span>
+  </header>
+  <section class="topgrid">
+    <div class="display" aria-label="Simulated Mochi display">
+      <div class="display-label">SIMULATED MOCHI</div>
+      <div id="mochi" class="mochi neutral" aria-live="polite">
+        <div class="eyes"><span></span><span></span></div>
+        <div class="mouth"></div>
+      </div>
+      <div class="bottomline"><span id="speedValue">0.0 km/h</span><span id="faceValue">neutral</span></div>
+    </div>
+    <div class="panel">
+      <h2>Expressions</h2><p>Sent as <code>E:&lt;face&gt;</code> commands.</p>
+      <div id="faces" class="button-grid"></div>
+      <h2>Sound &amp; interaction</h2>
+      <div class="button-grid"><button data-command="S:1">Sound 1</button><button data-command="S:2">Sound 2</button><button data-command="S:3">Sound 3</button><button id="hello">Hello demo</button><button id="ptt">Hold PTT</button><button data-command="Q">Get status</button><button data-command="I">Identify protocol</button></div>
+      <small>Sound IDs are tones on reference hardware. “Hello demo” speaks via your browser, not the Mochi speaker. PTT signals only; no voice relay yet.</small>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="rowhead"><h2>Speed telemetry</h2><span id="gpsState" class="muted">GPS inactive</span></div>
+    <label for="speed">Manual speed: <strong id="manualSpeed">0 km/h</strong></label>
+    <input type="range" id="speed" min="0" max="180" step="1" value="0">
+    <div class="actions"><button id="sendSpeed">Send manual speed</button><button id="startGPS">Use browser GPS</button><button id="stopGPS" disabled>Stop GPS</button></div>
+    <small>Browser GPS requires location permission and usually HTTPS (localhost is also considered a secure context). Speed may be absent from location results. Coordinates are never uploaded or stored.</small>
+  </section>
+  <section class="panel">
+    <h2>Optional local AI · text demonstration</h2>
+    <p>Requires a locally installed Ollama model and explicit <code>--ollama-model</code> at server start. No cloud API is used. The reply is spoken by this browser if supported, not by the Mochi speaker.</p>
+    <form id="assistantForm" class="commandrow"><input id="askText" type="text" maxlength="300" placeholder="Ask Open Mochi something" aria-label="Question for local AI"><button type="submit">Ask</button></form>
+    <p id="assistantReply" class="muted" aria-live="polite">Local AI is off by default.</p>
+  </section>
+  <section class="panel">
+    <div class="rowhead"><h2>Developer console</h2><button id="clear">Clear</button></div>
+    <form id="manualForm" class="commandrow"><input id="command" type="text" maxlength="20" placeholder="E:happy or Q" aria-label="Protocol command"><button type="submit">Send</button></form>
+    <pre id="log" class="log" role="log" aria-live="polite"></pre>
+    <p class="muted small">Safety: This local test server has no login, cloud access or production-grade BLE security. Keep it bound to localhost.</p>
+  </section>
+  <footer>Open Mochi r0.2 · Experimental, community-buildable reference prototype · Not affiliated with Dasai or Flipper Devices</footer>
+</main>
+<script src="/app.js" defer></script>
+</body>
+</html>

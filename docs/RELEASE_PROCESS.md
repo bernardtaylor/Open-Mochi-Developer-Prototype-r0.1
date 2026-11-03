@@ -1,27 +1,28 @@
 # Prompt-to-GitHub release policy
 
-Canonical repository: https://github.com/bernardtaylor/Open-Mochi-Developer-Prototype-r0.1
+**Canonical repository:** https://github.com/bernardtaylor/Open-Mochi-Developer-Prototype-r0.1
 
-## Versioning
-- Project version: `VERSION` and `pyproject.toml`, using SemVer.
-- Protocol version: `MOCHI/1` and `ID:0.2,...`, updated only when wire compatibility changes.
-- Hardware revisions: tracked separately and never implied by software release numbers.
+Open Mochi has three independent version numbers:
 
-## Workflow for each change made in an active chat
-1. Read the latest repository contents and preserve independent community work.
-2. Implement the requested changes with focused tests.
-3. Bump project version when source or documentation changes warrant it; pure discussion does not create a release.
-4. Update `VERSION`, `pyproject.toml`, `CHANGELOG.md`, `README.md`, and affected protocol/wiring/test documents.
-5. Commit source changes with an informative message, preferably on a branch with a PR; review and test before merging unverified hardware code.
-6. Document actual test results, external dependencies, known limitations and hardware safety.
-7. Publish version tags and releases once verification gates pass.
-8. Report GitHub commit/PR URLs and the exact published version in the chat.
+- **Project release:** `VERSION` and `[project].version` in `pyproject.toml`, e.g. `0.2.0`. Follow SemVer (`MAJOR.MINOR.PATCH`). Before `1.0.0`, incompatible experimental changes may increment MINOR.
+- **Protocol:** `MOCHI/1` and advertised `ID:0.2,...`. Change only when wire-format/behaviour compatibility changes, never just because README/code changed.
+- **Hardware revision:** separate board identifier/revision in documentation. A Python release is not evidence of physical compatibility.
 
-There is **no unattended background publishing**. Each change must be published in an active session with GitHub access. Do not upload proprietary factory firmware, assets, credentials, private GPS data, personal identifiers or unsafe unverified hardware instructions.
+## When a prompt creates a change
 
-## Release gates
-- Automated simulator and Python checks pass.
-- Cross-language protocol tests pass if the C++ toolchain is available.
-- ESP32 PlatformIO firmware build is verified before declaring binary releases.
-- Physical compatibility requires explicit board, revision, wiring and evidence.
-- Flipper/Momentum runtime support and factory Mochi V3 modification remain unverified until tested.
+1. Audit current repository state and review the request; do not overwrite or replace community commits.
+2. Implement a focused change. Avoid copying private data, credentials, GPS histories, personal identifiers, proprietary firmware or restricted assets into this public repository.
+3. Test what is testable. Record commands and results; keep hardware validation explicitly pending unless physically demonstrated.
+4. Bump project version: PATCH for fixes/docs, MINOR for new compatible features, and MAJOR for stable breaking changes. Pre-1.0 breaking changes use MINOR and a clear migration note. Pure discussion, research or prompt rewrites without repository changes **do not** require a new version.
+5. Update `VERSION`, `pyproject.toml`, `README.md` version/status/quickstart when affected, and `CHANGELOG.md` with traceable changes and known limits. Update protocol, wiring, BOM, test matrix and security documentation if affected.
+6. Commit to a descriptive branch and open a PR for code or hardware changes; perform review and verify checks before merging. Do not silently merge unverified firmware changes. Keep each change traceable to a commit/PR.
+7. Prefer an annotated `vX.Y.Z` tag and GitHub release for validated releases, where GitHub tooling permits; document if tagging is not supported. Never describe a ZIP as a validated hardware release.
+8. In each chat response, include repository link, resulting version, commit/PR, tests and limits. Publishing is performed during an active session with GitHub access; chats do **not** run autonomously in the background.
+
+## Release acceptance gates
+
+- Python test suite passes, and embedded protocol C++ checks run where toolchains are available.
+- Hardware firmware PlatformIO build is verified on supported CI or listed as outstanding.
+- Hardware claim needs a test report: board revision, pins/voltages, firmware hashes, logs, reproducible steps and recovery procedure.
+- No unauthenticated radio or remote access is described as secure.
+- Do not include private or proprietary material in public issues or source.
