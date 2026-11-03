@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1 — 2026-11-03 (documentation / architecture only)
+
+- Added RFC-0001 researching an offline-first multi-device companion ecosystem, native BLE phone app, Home Assistant/MQTT hub bridges, optional cloud/AI/PTT, privacy and community-onboarding model.
+- Updated README to distinguish research roadmap from implemented functionality.
+- No firmware, simulator, protocol, Bluetooth pairing, AI or cloud features were implemented by this documentation update; existing hardware remains unverified.
+- Prior code validation history is unchanged; new full CI status must be checked on the commit.
+
 ## 0.2.0 — 2026-11-02 (developer preview)
 
 - Created a shared host-compilable C++11 MOCHI/1 command parser and tested it against the Python simulator.
